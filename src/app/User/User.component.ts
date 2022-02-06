@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './User.component.html',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   title = 'my-app';
-
+  
+    
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AgGridModule } from 'ag-grid-angular';
 import { Project } from '../model/Project.model ';
+import { showprojectservice } from './Showprojectservice.service';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +16,16 @@ export class ShowProjectComponent {
     {headerName: 'CreatedOn', field: 'CreatedOn'}
    
 ];
-
+constructor(private showprojectservice: showprojectservice) { }
 
 rowDataList: Project[]= [  
   new Project ('1',  'TestProject1', 'This is Test Project', '20220122'),
   new Project ('2',  'TestProject2', 'This is Test Project', '20220122'),
  ];
 
- rowData =this.rowDataList;
+// rowData =this.rowDataList;
+
+rowData = this.showprojectservice.getProjectDetails();
 // rowData = [
 //   {ID: '1', Name: 'TestProject1', Details: 'This is TestProject',  CreateOn: '20220122'},
 //   {ID: '2', Name: 'TestProject2', Details: 'This is TestProject',  CreateOn: '20220122'},

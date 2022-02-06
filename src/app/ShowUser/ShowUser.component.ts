@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AgGridModule } from 'ag-grid-angular';
+import { showUserservice } from './showUserservice.service';
 //import { markAsUntransferable } from 'worker_threads';
 import {user} from '../model/User.model'
 @Component({
@@ -10,13 +11,13 @@ import {user} from '../model/User.model'
 export class ShowUserComponent {
   title = 'my-app';
 
-
-  rowDataList: user[]= [  
-    new user ('1',  'Mark',  'Seeman',   'Mark.seeman@test.com',  'Password1'),
-    new user ('2',  'John',  'Skeet',   'john.Skeet@test.com',  'Password1'),
-    new user ('3',  'Bob',  'Martin',   'Bob.Martin@test.com',  'Password1')
+  constructor(private showUserservice: showUserservice) { }
+  // rowDataList: user[]= [  
+  //   new user ('1',  'Mark',  'Seeman',   'Mark.seeman@test.com',  'Password1'),
+  //   new user ('2',  'John',  'Skeet',   'john.Skeet@test.com',  'Password1'),
+  //   new user ('3',  'Bob',  'Martin',   'Bob.Martin@test.com',  'Password1')
    
-   ];  
+  //  ];  
 
   columnDefs = [
     {headerName: 'ID', field: 'ID'},
@@ -33,7 +34,7 @@ export class ShowUserComponent {
 //   {ID: '3', FirstName: 'Bob', LastName: 'Martin',  Email: 'Bob.Martin@test.com', Password: 'Password1'},
 // ];
 
-rowData= this.rowDataList;
+rowData= this.showUserservice.getUserDetails;
 // rowData =  [  
 //   new user ('1',  'Mark',  'Seeman',   'Mark.seeman@test.com',  'Password1'),
 //   new user ('2',  'John',  'Skeet',   'john.Skeet@test.com',  'Password1'),

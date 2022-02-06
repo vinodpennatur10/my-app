@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AgGridModule } from 'ag-grid-angular';
 
 import {Task} from '../model/Task.model '
-
+import { showTaskservice } from './showTaskservice.service';
 @Component({
   selector: 'app-root',
   templateUrl: './ShowTask.component.html',
@@ -11,11 +11,13 @@ import {Task} from '../model/Task.model '
 export class ShowTaskComponent {
   title = 'my-app';
 
+  constructor(private showTaskservice: showTaskservice) { }
+
   
-  rowDataList: Task[]= [  
-    new Task ('1',  '1',  '2',   '1',  'This is Test Task', '20220122'),
-    new Task ('1',  '1',  '2',   '1',  'This is Test Task1', '20220122'),
-   ];
+  // rowDataList: Task[]= [  
+  //   new Task ('1',  '1',  '2',   '1',  'This is Test Task', '20220122'),
+  //   new Task ('1',  '1',  '2',   '1',  'This is Test Task1', '20220122'),
+  //  ];
 
   columnDefs = [
     {headerName: 'ID', field: 'ID'},
@@ -25,7 +27,7 @@ export class ShowTaskComponent {
     {headerName: 'Detail', field: 'Detail'},
     {headerName: 'CreatedOn', field: 'CreatedOn'}
 ];
-rowData= this.rowDataList;
+rowData= this.showTaskservice.getTaskDetails;
 // rowData = [ {ID: '1', ProjectID: '1', Status: '2', AssignedToUserID:'1',Detail:'This is test Task', CreateOn: '20220122'},
 //   {ID: '1', ProjectID: '1', Status: '2', AssignedToUserID:'1',Detail:'This is test Task', CreateOn: '20220122'},
 //   {ID: '2', ProjectID: '2', Status: '1', AssignedToUserID:'2',Detail:'This is test Task', CreateOn: '20220122'},

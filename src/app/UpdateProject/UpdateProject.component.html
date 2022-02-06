@@ -5,7 +5,7 @@
                 <label>Name:</label>
             </td>
             <td>
-                <textarea></textarea>
+                <p><input type="text" id="name" name="name" [(ngModel)]="name"></p>
             </td>
         </tr>
         <tr>
@@ -13,16 +13,16 @@
                 <label>Details:</label>
             </td>
             <td>
-                <textarea></textarea>
+                <p><input type="text" id="details" name="details" [(ngModel)]="details"></p>
             </td>
         </tr>
 
         <tr>
             <td>
-               <button>Save</button>
+               <button onclick="updateproject()">Save</button>
             </td>
             <td>
-                <button>Delete</button>
+                <button onclick="deleteproject()">Delete</button>
             </td>
             <td>
                 <button>Cancel</button>
